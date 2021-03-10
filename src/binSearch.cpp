@@ -1,8 +1,8 @@
 /**
  * @file binSearch.cpp
  * @brief This is a demonstration of binary search trees.
- * @details This is a demo from CPTR 227 class
- * @author Seth McNeill
+ * @details This is a demo for class
+ * @author bona tufas
  * @date 2021 March 02
  * 
  */
@@ -124,6 +124,33 @@ BTNode* genExampleTree(BTNode* root) {
     }
     return root;
 }
+BTNode* genRight(BTNode* NodeRight){
+    int classData[] = {3,4,5,6,7,8,9,11,12,13,14};
+    for(int i = 0;i < 11; i++){
+        addNode(NodeRight, classData[i]);
+    }
+
+    return NodeRight;
+}
+
+BTNode* genLeft(BTNode* NodeLeft){
+    int classData[] = {13,12,11,9,8,7,6,5,4,3,1};
+    for(int i = 0;i < 11; i++){
+        addNode(NodeLeft, classData[i]);
+    }
+
+    return NodeLeft;
+}
+BTNode* genebalance(BTNode* Nodebalance){
+    int classData[] = {6,11,4,7,9,13,3,5,12,14};
+    for(int iii = 0;iii < 11; iii++){
+        addNode(Nodebalance, classData[iii]);
+    }
+
+    return Nodebalance;
+}
+
+
 
 /**
  * Prints out a representtation of a binary search tree
@@ -171,7 +198,7 @@ void printBT(const string& prefix, BTNode* node, bool isLeft)
     {
         cout << prefix;
 
-        cout << (isLeft ? "├──" : "└──" );
+        cout << (isLeft ? "|--" : "L--" );
 
         // print the value of the node
         //cout << node->nodeName() << ':' << node->nodeData() << std::endl;
@@ -195,8 +222,19 @@ void printBT(BTNode* node)
 
 
 int main(int, char**) {
-    BTNode* rootNode = new BTNode(0); // pointer to the root node
-    genExampleTree(rootNode);
-    printBT(rootNode);
-    printTree(rootNode);
+    BTNode* Node = new BTNode(0); // pointer to the root node
+    BTNode* Noderight = new BTNode(1);
+    BTNode* Nodeleft = new BTNode(14);
+    BTNode* Nodebalance = new BTNode(8);
+    genExampleTree(Nodeleft);
+    printBT(Nodeleft);
+    printTree(Nodeleft);
+
+    genExampleTree(Noderight);
+    printBT(Noderight);
+    printTree(Noderight);
+
+    genExampleTree(Nodebalance);
+    printBT(Nodebalance);
+    printTree(Nodebalance);
 }
